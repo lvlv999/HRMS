@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.dao.UserMapper">
+    <insert id="addUser">
+        insert into T_USER (u_id,u_name,u_pass) values (u_seq.nextval,#{u_name},#{u_pass})
+    </insert>
+    <select id="getUserList" resultType="com.cn.model.User">
+        select * from T_USER
+    </select>
+</mapper>

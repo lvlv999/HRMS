@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.dao.ResumeMapper">
+    <select id="getResumeById" parameterType="int" resultType="com.cn.model.Resume">
+        select * from T_RESUME where u_id = #{u_id}
+    </select>
+    <insert id="addResume" parameterType="com.cn.model.Resume">
+        insert into T_RESUME (r_id,r_name,r_age,r_sex,r_education,r_major,r_phone,r_address,u_id)
+        values(r_seq.nextval,#{r_name},#{r_age},#{r_sex},#{r_education},#{r_major},#{r_phone},#{r_address},#{u_id})
+    </insert>
+    <update id="updateResume" parameterType="com.cn.model.Resume">
+        update T_RESUME set r_name = #{r_name},r_age = #{r_age},r_sex = #{r_sex},r_education = #{r_education},r_major = #{r_major},r_phone = #{r_phone}
+        where r_id = #{r_id}
+    </update>
+</mapper>
